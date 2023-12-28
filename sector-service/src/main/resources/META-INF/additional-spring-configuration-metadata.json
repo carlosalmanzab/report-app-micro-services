@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "reader.file.comuna",
+    "type": "java.lang.String",
+    "description": "A description for 'reader.file.comuna'"
+  },
+  {
+    "name": "reader.file.barrio",
+    "type": "java.lang.String",
+    "description": "A description for 'reader.file.barrio'"
+  }
+]}
