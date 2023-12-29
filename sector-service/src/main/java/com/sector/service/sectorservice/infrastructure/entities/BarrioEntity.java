@@ -2,7 +2,7 @@ package com.sector.service.sectorservice.infrastructure.entities;
 
 import java.time.LocalDateTime;
 
-import com.sector.service.sectorservice.domain.models.Barrio;
+import com.sector.service.sectorservice.domain.Barrio;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -5,12 +5,12 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import com.sector.service.sectorservice.domain.models.Comuna;
-import com.sector.service.sectorservice.domain.ports.out.ComunaPersistencePort;
+import com.sector.service.sectorservice.domain.Comuna;
+import com.sector.service.sectorservice.domain.port.out.persistence.IComunaRepositoryPort;
 import com.sector.service.sectorservice.infrastructure.entities.ComunaEntity;
 
 @Component
-public class ComunaRepositoryAdapter implements ComunaPersistencePort {
+public class ComunaRepositoryAdapter implements IComunaRepositoryPort {
 
     private final ComunaRepository comunaRepository;
 

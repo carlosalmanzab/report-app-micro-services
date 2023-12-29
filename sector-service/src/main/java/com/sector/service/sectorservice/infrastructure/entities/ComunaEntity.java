@@ -3,7 +3,7 @@ package com.sector.service.sectorservice.infrastructure.entities;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-import com.sector.service.sectorservice.domain.models.Comuna;
+import com.sector.service.sectorservice.domain.Comuna;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

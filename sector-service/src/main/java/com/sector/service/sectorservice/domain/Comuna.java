@@ -1,4 +1,4 @@
-package com.sector.service.sectorservice.domain.models;
+package com.sector.service.sectorservice.domain;
 
 import java.time.LocalDateTime;
 import java.util.List;

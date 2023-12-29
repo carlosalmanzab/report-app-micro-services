@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-import com.sector.service.sectorservice.domain.models.Barrio;
+import com.sector.service.sectorservice.domain.Barrio;
 import com.sector.service.sectorservice.infrastructure.entities.dto.BarrioDTO;
 
 @Mapper(componentModel = "spring")

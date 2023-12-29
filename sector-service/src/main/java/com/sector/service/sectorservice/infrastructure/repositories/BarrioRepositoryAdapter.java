@@ -5,12 +5,12 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import com.sector.service.sectorservice.domain.models.Barrio;
-import com.sector.service.sectorservice.domain.ports.out.BarrioPersistencePort;
+import com.sector.service.sectorservice.domain.Barrio;
+import com.sector.service.sectorservice.domain.port.out.persistence.IBarrioRepositoryPort;
 import com.sector.service.sectorservice.infrastructure.entities.BarrioEntity;
 
 @Component
-public class BarrioRepositoryAdapter implements BarrioPersistencePort {
+public class BarrioRepositoryAdapter implements IBarrioRepositoryPort {
 
     private final BarrioRepository barrioRepository;
 

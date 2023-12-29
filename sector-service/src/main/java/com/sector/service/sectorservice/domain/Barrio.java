@@ -1,4 +1,6 @@
-package com.sector.service.sectorservice.infrastructure.entities.dto;
+package com.sector.service.sectorservice.domain;
+
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,10 +8,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ComunaDTO {
+@Builder
+public class Barrio {
     private Long id;
     private String nombre;
+    private LocalDateTime fechaCreacion;
 }
