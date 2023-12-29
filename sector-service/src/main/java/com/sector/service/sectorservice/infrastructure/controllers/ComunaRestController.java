@@ -13,8 +13,11 @@ import com.sector.service.sectorservice.domain.port.in.web.IComunaWebPort;
 import com.sector.service.sectorservice.infrastructure.entities.dto.ComunaDTO;
 import com.sector.service.sectorservice.infrastructure.entities.mapper.ComunaMapper;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/api")
+@Tag(name = "Comunas", description = "Endpoint para el manejo de las comunas de la ciudad de Montería")
 public class ComunaRestController implements IComunaWebPort {
 
     private final IComunaService comunaService;

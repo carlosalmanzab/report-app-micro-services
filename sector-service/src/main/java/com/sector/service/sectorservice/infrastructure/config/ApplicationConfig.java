@@ -4,8 +4,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.sector.service.sectorservice.application.services.BarrioServiceImpl;
+import com.sector.service.sectorservice.application.services.ComunaFacadeServiceImpl;
 import com.sector.service.sectorservice.application.services.ComunaServiceImpl;
 import com.sector.service.sectorservice.application.services.IBarrioService;
+import com.sector.service.sectorservice.application.services.IComunaFacadeService;
 import com.sector.service.sectorservice.application.services.IComunaService;
 import com.sector.service.sectorservice.domain.port.out.persistence.IBarrioRepositoryPort;
 import com.sector.service.sectorservice.domain.port.out.persistence.IComunaRepositoryPort;
@@ -14,6 +16,21 @@ import com.sector.service.sectorservice.infrastructure.repositories.ComunaReposi
 
 @Configuration
 public class ApplicationConfig {
+
+        /**
+     * Creates and returns an instance of the IComunaFacadeService interface.
+     *
+     * @param  comunaRepositoryPort  the repository port for the Comuna entity
+     * @param  barrioRepositoryPort  the repository port for the Barrio entity
+     * @return                       an instance of the ComunaFacadeServiceImpl class
+     */
+    @Bean
+    public IComunaFacadeService comunaFacadeService(IComunaRepositoryPort comunaRepositoryPort, IBarrioRepositoryPort barrioRepositoryPort) {
+        return new ComunaFacadeServiceImpl(
+            new ComunaServiceImpl(comunaRepositoryPort),
+            new BarrioServiceImpl(barrioRepositoryPort)
+        );
+    }
 
     /**
      * Creates and returns an instance of the IComunaService interface.
@@ -44,7 +61,7 @@ public class ApplicationConfig {
      * @return the ComunaRepositoryAdapter instance
      */
     @Bean
-    public IComunaRepositoryPort comunaRepository(ComunaRepositoryAdapter comunaRepositoryAdapter) {
+    public IComunaRepositoryPort comunaRepositoryPort(ComunaRepositoryAdapter comunaRepositoryAdapter) {
         return comunaRepositoryAdapter;
     }
 
@@ -55,7 +72,7 @@ public class ApplicationConfig {
      * @return the instance of BarrioRepositoryAdapter as a BarrioRepositoryPort
      */
     @Bean
-    public IBarrioRepositoryPort barrioRepository(BarrioRepositoryAdapter barrioRepositoryAdapter) {
+    public IBarrioRepositoryPort barrioRepositoryPort(BarrioRepositoryAdapter barrioRepositoryAdapter) {
         return barrioRepositoryAdapter;
     }
 }

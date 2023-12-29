@@ -27,13 +27,4 @@ public interface IBarrioWebPort {
      */
     @GetMapping("/barrios/{id}")
     ResponseEntity<BarrioDTO> getById(@PathVariable Long id);
-
-    /**
-     * Retrieves a list of BarrioDTO objects by the given Comuna ID.
-     *
-     * @param id the ID of the Comuna
-     * @return a ResponseEntity containing a list of BarrioDTO objects
-     */
-    @GetMapping("/Comunas/{id}/barrios")
-    ResponseEntity<List<BarrioDTO>> listByComunaId(@PathVariable Long id);
 }
