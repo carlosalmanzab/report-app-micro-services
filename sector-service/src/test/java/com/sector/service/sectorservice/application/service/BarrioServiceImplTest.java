@@ -17,9 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.sector.service.sectorservice.application.services.BarrioServiceImpl;
 import com.sector.service.sectorservice.domain.Barrio;
-import com.sector.service.sectorservice.domain.Comuna;
 import com.sector.service.sectorservice.domain.port.out.persistence.IBarrioRepositoryPort;
-import com.sector.service.sectorservice.domain.port.out.persistence.IComunaRepositoryPort;
 
 @ExtendWith(MockitoExtension.class)
 public class BarrioServiceImplTest {
@@ -30,20 +28,10 @@ public class BarrioServiceImplTest {
     @InjectMocks
     private BarrioServiceImpl barrioService;
 
-    @Mock
-    private IComunaRepositoryPort comunaRepository;
-
-    private Comuna comuna;
-
     private Barrio barrio;
 
     @BeforeEach
     public void setup() {
-        comuna = Comuna.builder()
-        .id(1L)
-        .nombre("Comuna 1")
-        .fechaCreacion(LocalDateTime.now())
-        .build();
 
         barrio = Barrio.builder()
         .id(1L)
@@ -54,7 +42,7 @@ public class BarrioServiceImplTest {
 
     @DisplayName("Test find barrio for id")
     @Test
-    void testGetById() {
+    void testGetBarrioById() {
         //Given 
         given(barrioRepository.findById(1L)).willReturn(Optional.of(barrio));
         //When
@@ -66,7 +54,7 @@ public class BarrioServiceImplTest {
     
     @DisplayName("Test get all barrios")
     @Test
-    void testGetAll() {
+    void testGetAllBarrios() {
         //Given 
         List<Barrio> expectedBarrios = List.of(barrio);
         given(barrioRepository.findAll()).willReturn(expectedBarrios);
@@ -78,7 +66,7 @@ public class BarrioServiceImplTest {
 
     @DisplayName("Test get barrios by comuna id")
     @Test
-    void testGetByComunaId() {
+    void testGetBarriosByComunaId() {
         //Given 
         List<Barrio> expectedBarrios = List.of(barrio);
         given(barrioRepository.findByComunaId(1L)).willReturn(expectedBarrios);
