@@ -10,7 +10,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @ComponentScan(basePackages = "com.sector.service.sectorservice.infrastructure.mapper")
 public class MapperConfig {
 
-        @Bean
+    /**
+     * Creates and returns a new instance of the ObjectMapper class.
+     *
+     * @return a new instance of the ObjectMapper class
+     */
+    @Bean
     public ObjectMapper objectMapper() {
         return new ObjectMapper();
     }
