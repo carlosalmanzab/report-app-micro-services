@@ -14,15 +14,26 @@ public class ComunaServiceImpl implements IComunaService {
         this.comunaRepository = comunaRepository;
     }
 
+    /**
+     * Retrieves a Comuna object by its ID.
+     *
+     * @param id the ID of the Comuna object to retrieve
+     * @return an Optional containing the retrieved Comuna object, or an empty
+     *         Optional if no Comuna object is found
+     */
     @Override
     public Optional<Comuna> getById(Long id) {
         return comunaRepository.findById(id);
     }
 
+    /**
+     * Retrieves all the "Comuna" objects from the database.
+     *
+     * @return a list of "Comuna" objects
+     */
     @Override
     public List<Comuna> getAll() {
         return comunaRepository.findAll();
     }
-
 
 }
