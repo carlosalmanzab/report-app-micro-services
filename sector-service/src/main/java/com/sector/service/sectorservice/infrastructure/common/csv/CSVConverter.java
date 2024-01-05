@@ -18,6 +18,15 @@ public class CSVConverter {
         throw new IllegalStateException("Utility class");
     }
 
+    /**
+     * Converts the data from an input stream reader into a list of ComunaEntity
+     * objects.
+     *
+     * @param inputStreamReader the input stream reader containing the data to be
+     *                          converted
+     * @return the list of ComunaEntity objects converted from the input data
+     * @throws IOException if an I/O error occurs while reading the input stream
+     */
     public static List<ComunaEntity> convertToListComunaEntity(InputStreamReader inputStreamReader) throws IOException {
 
         List<ComunaEntity> comunas = new ArrayList<>();
@@ -45,6 +54,15 @@ public class CSVConverter {
         }
     }
 
+    /**
+     * Converts the given input stream reader into a list of BarrioEntity objects.
+     *
+     * @param inputStreamReader the input stream reader to convert
+     * @param comunaRepository  the repository for retrieving ComunaEntity objects
+     * @return the list of BarrioEntity objects converted from the input stream
+     *         reader
+     * @throws IOException if there is an error reading the input stream
+     */
     public static List<BarrioEntity> convertToListBarrioEntity(InputStreamReader inputStreamReader,
             ComunaRepository comunaRepository)
             throws IOException {
@@ -53,13 +71,19 @@ public class CSVConverter {
 
         try (BufferedReader br = new BufferedReader(inputStreamReader)) {
             String line = null;
-            // Saltar la primera línea
+            
+            if ((line = br.readLine()) == null) {
+                return barrios;
+            }
+
             br.readLine();
+
             while ((line = br.readLine()) != null) {
                 String[] columns = line.split(",");
 
                 Optional<ComunaEntity> comuna = comunaRepository.findById(Long.parseLong(columns[1]));
-                if (!comuna.isPresent()) continue;
+                if (!comuna.isPresent())
+                    continue;
 
                 BarrioEntity barrio = BarrioEntity
                         .builder()
