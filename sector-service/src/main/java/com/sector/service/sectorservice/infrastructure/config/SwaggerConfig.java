@@ -10,6 +10,13 @@ import io.swagger.v3.oas.models.info.License;
 @Configuration
 
 public class SwaggerConfig {
+
+    /**
+     * A method that returns a custom OpenAPI object.
+     *
+     * @return A new OpenAPI object with customized properties, such as title,
+     *         version, description, terms of service, and license.
+     */
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI().info(new Info()
